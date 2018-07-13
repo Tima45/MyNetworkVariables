@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QSettings>
-#include <QUdpSocket>
+#include "networkvariable.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,14 +26,15 @@ private:
     QString otherIp;
     int otherPort = 0;
     int port = 0;
-    QUdpSocket *getterSocket;
-    QUdpSocket *setterSocket;
 
-public slots:
-    void readFromSocket();
+    NetworkVariable<double> *temp;
+    NetworkVariable<bool> *flag;
+
 private slots:
     void on_checkBox_clicked(bool checked);
     void on_doubleSpinBox_editingFinished();
+    void tempUpdated();
+    void flagUpdated();
 };
 
 #endif // MAINWINDOW_H
