@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     readSettings();
 
+    AbstractNetworkVariable::setPort(port);
 
     temp = new NetworkVariable<double>("temp",this);
     flag = new NetworkVariable<bool>("flag",this);
